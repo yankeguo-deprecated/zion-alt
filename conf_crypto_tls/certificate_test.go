@@ -1,4 +1,4 @@
-package zconf_crypto_tls
+package conf_crypto_tls
 
 import (
 	"encoding/json"

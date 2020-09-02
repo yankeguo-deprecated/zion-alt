@@ -1,4 +1,4 @@
-package zconf_time
+package conf_time
 
 import (
 	"encoding/json"

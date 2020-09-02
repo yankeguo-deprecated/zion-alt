@@ -1,4 +1,4 @@
-package zconf_crypto_x509
+package conf_crypto_x509
 
 import (
 	"encoding/json"
