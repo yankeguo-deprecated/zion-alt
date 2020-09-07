@@ -1,4 +1,4 @@
-package zconf_elastic
+package zion_elastic
 
 import (
 	"encoding/json"

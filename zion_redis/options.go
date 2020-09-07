@@ -2,8 +2,8 @@ package zconf_redis_v7
 
 import (
 	"github.com/go-redis/redis/v7"
-	"github.com/zionkit/zion/zconf_crypto_tls"
-	"github.com/zionkit/zion/zconf_time"
+	"github.com/zionkit/zion/zconf_stdlib/zconf_crypto_tls"
+	"github.com/zionkit/zion/zconf_stdlib/zconf_time"
 )
 
 type Options struct {
@@ -48,6 +48,10 @@ func (opts Options) Unwrap() *redis.Options {
 		IdleCheckFrequency: opts.IdleCheckFrequency.Unwrap(),
 		TLSConfig:          opts.TLSConfig.Unwrap(),
 	}
+}
+
+func (opts Options) Create() *redis.Client {
+	return redis.NewClient(opts.Unwrap())
 }
 
 type ClusterOptions struct {
@@ -96,4 +100,8 @@ func (opts ClusterOptions) Unwrap() *redis.ClusterOptions {
 		IdleCheckFrequency: opts.IdleCheckFrequency.Unwrap(),
 		TLSConfig:          opts.TLSConfig.Unwrap(),
 	}
+}
+
+func (opts ClusterOptions) Create() *redis.ClusterClient {
+	return redis.NewClusterClient(opts.Unwrap())
 }

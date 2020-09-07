@@ -1,9 +1,9 @@
-package zconf_elastic
+package zion_elastic
 
 import (
 	"encoding/json"
 	"github.com/olivere/elastic/v7"
-	"github.com/zionkit/zion/zconf_time"
+	"github.com/zionkit/zion/zconf_stdlib/zconf_time"
 )
 
 const (
@@ -102,4 +102,8 @@ func (c *Options) UnmarshalJSON(bytes []byte) (err error) {
 	}
 	c.optionFuncs = opts.Build()
 	return
+}
+
+func (c *Options) Create() (*elastic.Client, error) {
+	return elastic.NewClient(c.Unwrap()...)
 }

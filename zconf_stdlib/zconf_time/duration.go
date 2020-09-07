@@ -27,17 +27,3 @@ func (d *Duration) UnmarshalJSON(bytes []byte) (err error) {
 	*d = Duration(x)
 	return
 }
-
-func (d Duration) MarshalText() (text []byte, err error) {
-	text = []byte(time.Duration(d).String())
-	return
-}
-
-func (d *Duration) UnmarshalText(text []byte) (err error) {
-	var x time.Duration
-	if x, err = time.ParseDuration(string(text)); err != nil {
-		return
-	}
-	*d = Duration(x)
-	return
-}

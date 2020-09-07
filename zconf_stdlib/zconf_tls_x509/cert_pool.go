@@ -1,4 +1,4 @@
-package zconf_crypto_x509
+package zconf_tls_x509
 
 import (
 	"crypto/x509"

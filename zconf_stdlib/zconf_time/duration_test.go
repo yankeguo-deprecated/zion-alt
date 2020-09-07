@@ -23,8 +23,4 @@ func TestDuration_Duration(t *testing.T) {
 	assert.Equal(t, time.Second*3, td1.D.Unwrap())
 	err := json.Unmarshal([]byte(`{}`), &td1)
 	assert.NoError(t, err)
-
-	d = Duration(0)
-	buf, _ = d.MarshalText()
-	assert.Equal(t, "0s", string(buf))
 }
