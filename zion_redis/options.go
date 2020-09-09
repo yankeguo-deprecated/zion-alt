@@ -7,6 +7,7 @@ import (
 )
 
 type Options struct {
+	Name               string                  `json:"name"`
 	Network            string                  `json:"network"`
 	Address            string                  `json:"address"`
 	Database           int                     `json:"database"`
@@ -55,6 +56,7 @@ func (opts Options) Create() *redis.Client {
 }
 
 type ClusterOptions struct {
+	Name               string                  `json:"name"`
 	Addresses          []string                `json:"addresses"`
 	MaxRedirects       int                     `json:"max_redirects"`
 	ReadOnly           bool                    `json:"read_only"`

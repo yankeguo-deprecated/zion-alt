@@ -69,6 +69,10 @@ func Load(key string, out interface{}) (err error) {
 						return
 					}
 				}
+				// render
+				if buf, err = Render(buf); err != nil {
+					return
+				}
 				// unmarshal to general map
 				m := map[string]interface{}{}
 				if err = loader.Load(filename, buf, &m); err != nil {

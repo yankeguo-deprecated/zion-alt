@@ -10,7 +10,8 @@ import (
 type testStruct struct {
 	Hello struct {
 		World struct {
-			Truth bool `json:"t"`
+			Truth    bool   `json:"t"`
+			Hostname string `json:"h"`
 		} `json:"w"`
 	} `json:"h"`
 }
@@ -26,6 +27,8 @@ func TestLoad(t *testing.T) {
 	err = Load("test2", &ts)
 	assert.NoError(t, err)
 	assert.True(t, ts.Hello.World.Truth)
+	hostname, _ := os.Hostname()
+	assert.Equal(t, hostname, ts.Hello.World.Hostname)
 	ts = testStruct{}
 	err = Load("test3", &ts)
 	assert.Error(t, err)
